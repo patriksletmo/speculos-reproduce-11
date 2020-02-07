@@ -47,7 +47,7 @@ void verifyMessageIntegrity(const unsigned char *data, unsigned char length) {
     // Verify that all bytes were successfully transmitted
     // by ensuring that no byte has the value zero.
     for (unsigned char i = 0; i < length; ++i) {
-        if (data[i] == 0x00) {
+        if (data[i] != i) {
             // Return with a status code indicating the index of the first null byte
             THROW(0x6A00 | i);
         }

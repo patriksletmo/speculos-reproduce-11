@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-GOOD_EXAMPLE=`python3 -c "print('e001000019' + 'AA' * 25)"`
-BAD_EXAMPLE=`python3 -c "print('e0010000B0' + 'AA' * 176)"`
+GOOD_EXAMPLE=`python3 -c "print('e001000019' + ''.join(['{:02X}'.format(i) for i in range(25)]))"`
+BAD_EXAMPLE=`python3 -c "print('e0010000B0' + ''.join(['{:02X}'.format(i) for i in range(176)]))"`
 
 if [[ "$1" == "device" ]]; then
   echo "Testing against device..."
